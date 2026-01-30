@@ -1,5 +1,10 @@
-import { View, Text, Button } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { removeToken } from "../../shared/storage/authStorage";
+import { homeStyles as styles } from "../styles/home.styles";
 
 export function HomeScreen({ navigation }: any) {
   const logout = async () => {
@@ -8,9 +13,28 @@ export function HomeScreen({ navigation }: any) {
   };
 
   return (
-    <View>
-      <Text>Bienvenido a Licorería Guayabal</Text>
-      <Button title="Cerrar sesión" onPress={logout} />
+    <View style={styles.container}>
+      {/* Encabezado */}
+      <View style={styles.header}>
+        <Text style={styles.title}>Bienvenido a Farmacia</Text>
+        <Text style={styles.subtitle}>Gracias por preferirnos</Text>
+      </View>
+
+      {/* Card de bienvenida */}
+      <View style={styles.card}>
+        <Text style={styles.welcome}>
+          Bienvenido al sistema de gestión
+        </Text>
+
+        <Text style={styles.description}>
+          Desde aquí podrás acceder a las funcionalidades principales
+          de la aplicación.
+        </Text>
+
+        <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+          <Text style={styles.logoutText}>Cerrar sesión</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
