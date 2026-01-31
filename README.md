@@ -1,3 +1,145 @@
+Farmacia --APP Móvil
+
+Es una aplicación desrrollada con  React Native CLIC la cual utiliza arquitetura MVVM y también consume una API REST, nuestra aplicación nos permite realizar un registro, inicio de sesión y cierre de sesión 
+
+Tecnologías y arquitectura del proyecto
+
+- React Native CLI
+- AsyncStorage
+- Axios
+- Arquitectura MVVM
+- AsyncStorage
+- TypeScript
+- API REST
+- Git / GitHub
+
+Estructura de nuestro proyecto
+
+src/
+├── model/
+├── navigation/
+├── presentation/
+│   ├── screens/
+│   ├── styles/
+│   
+├── services/
+├── shared/
+│   └── storage/
+└── viewmodel/
+
+Requisitos
+
+- Node.js 
+- React Native CLI
+- npm o yarn
+- JDK 11 o superior
+- Android Studio
+- Emulador Android 
+
+
+Instalación
+
+git clone https://github.com/angelagarcia2000/Appfarmacia
+cd appfarmacia
+
+Instalar dependencias
+npm install
+
+
+o
+
+yarn install
+
+Configuración de variables de entorno (.env)
+
+Crear un archivo .env en la raíz del proyecto:
+
+API_URL=http://localhost:8000/api
+
+
+Notas:
+
+Si se usa un dispositivo físico el cual va a reemplazar localhost por la IP del computador.
+
+Para Android Emulator usar:
+
+API_URL=http://10.0.2.2:8000/api
+
+Ejecutar la aplicación
+npx react-native run-android
+
+
+Si el servidor no se inicia automáticamente:
+
+npx react-native start
+
+Uso de variables de entorno
+
+Ejemplo de configuración en services/api.ts:
+
+import axios from "axios";
+import { API_URL } from "@env";
+
+export const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+Funcionalidades 
+
+Registro de usuarios
+
+Inicio de sesión
+
+Persistencia de sesión (token)
+
+Vistas protegidas
+
+Cierre de sesión
+
+Diseño profesional y coherente
+
+Separación de responsabilidades (MVVM)
+
+Evidencias
+
+Pantalla de Login
+
+Pantalla de Registro
+
+Pantalla Home 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
