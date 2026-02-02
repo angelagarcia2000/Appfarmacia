@@ -3,6 +3,8 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  ActivityIndicator,
+  Image,
 } from "react-native";
 import { useState } from "react";
 import { useAuthViewModel } from "../../viewmodel/AuthViewModel";
@@ -23,20 +25,24 @@ export function LoginScreen({ navigation }: any) {
 
   return (
     <View style={styles.container}>
-      {/* Encabezado */}
+      {/* HEADER */}
       <View style={styles.header}>
-        <Text style={styles.appTitle}>Farmacia</Text>
-        <Text style={styles.subtitle}>Sistema de Gestión</Text>
+        <Image
+          source={require("../../shared/assets/logo.png")}
+          style={styles.logo}
+        />
+
+        <Text style={styles.title}>Farmacia el Descuento</Text>
+        <Text style={styles.subtitle}>
+          Inicia sesión para gestionar tus medicamentos y tratamientos
+        </Text>
       </View>
 
-      {/* Card */}
+      {/* CARD DE LOGIN */}
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Iniciar sesión</Text>
-
         <TextInput
           style={styles.input}
-          placeholder="Usuario"
-          placeholderTextColor="#94A3B8"
+          placeholder="Usuario o correo electrónico"
           autoCapitalize="none"
           value={username}
           onChangeText={setUsername}
@@ -45,7 +51,6 @@ export function LoginScreen({ navigation }: any) {
         <TextInput
           style={styles.input}
           placeholder="Contraseña"
-          placeholderTextColor="#94A3B8"
           secureTextEntry
           value={password}
           onChangeText={setPassword}
@@ -61,18 +66,16 @@ export function LoginScreen({ navigation }: any) {
           disabled={!isValid || loading}
           onPress={handleLogin}
         >
-          <Text style={styles.buttonText}>
-            {loading ? "Ingresando..." : "Ingresar"}
-          </Text>
+          {loading ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text style={styles.buttonText}>Ingresar</Text>
+          )}
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.link}
-          onPress={() => navigation.navigate("Register")}
-        >
-          <Text style={styles.linkText}>
-            ¿No tienes cuenta?{" "}
-            <Text style={styles.linkBold}>Regístrate</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <Text style={styles.registerText}>
+            ¿No tienes cuenta? Crear una ahora
           </Text>
         </TouchableOpacity>
       </View>

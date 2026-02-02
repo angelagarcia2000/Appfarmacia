@@ -3,89 +3,74 @@ import { StyleSheet } from "react-native";
 export const loginStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
+    backgroundColor: "#3f62b9",
+    padding: 20,
     justifyContent: "center",
-    padding: 24,
   },
-
   header: {
+    marginBottom: 30,
     alignItems: "center",
-    marginBottom: 24,
   },
-
-  appTitle: {
-    fontSize: 34,
-    fontWeight: "bold",
-    color: "#38BDF8",
+  title: {
+    fontSize: 28,
+    fontWeight: "700",
+    color: "#090909",
   },
-
   subtitle: {
     fontSize: 14,
-    color: "#CBD5E1",
+    color: "#050505",
+    marginTop: 6,
   },
-
   card: {
-    backgroundColor: "#020617",
-    padding: 24,
-    borderRadius: 18,
+    backgroundColor: "#ffffff",
+    borderRadius: 12,
+    padding: 20,
+    elevation: 4,
   },
-
-  cardTitle: {
-    fontSize: 20,
-    fontWeight: "600",
-    color: "#E5E7EB",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-
   input: {
-    height: 48,
     borderWidth: 1,
-    borderColor: "#1E293B",
-    borderRadius: 12,
+    borderColor: "#d1d5db",
+    borderRadius: 8,
     paddingHorizontal: 14,
-    color: "#E5E7EB",
-    marginBottom: 14,
+    paddingVertical: 12,
     fontSize: 15,
+    marginBottom: 14,
+    color: "#111827",
   },
-
   button: {
-    backgroundColor: "#38BDF8",
-    height: 48,
-    borderRadius: 12,
-    justifyContent: "center",
+    backgroundColor: "#2563eb",
+    paddingVertical: 14,
+    borderRadius: 8,
     alignItems: "center",
     marginTop: 10,
   },
-
   buttonDisabled: {
-    backgroundColor: "#64748B",
+    backgroundColor: "#9ca3af",
   },
-
   buttonText: {
-    color: "#020617",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-
-  error: {
-    color: "#F87171",
-    textAlign: "center",
-    marginBottom: 8,
-  },
-
-  link: {
-    marginTop: 18,
-    alignItems: "center",
-  },
-
-  linkText: {
-    color: "#94A3B8",
-    fontSize: 14,
-  },
-
-  linkBold: {
-    color: "#38BDF8",
+    color: "#ffffff",
     fontWeight: "600",
+    fontSize: 16,
   },
+  error: {
+    color: "#dc2626",
+    fontSize: 13,
+    marginBottom: 8,
+    textAlign: "center",
+  },
+  registerText: {
+    color: "#2563eb",
+    textAlign: "center",
+    marginTop: 16,
+    fontSize: 14,
+    fontWeight: "500",
+  },
+  
+  logo: {
+  width: 110,
+  height: 110,
+  marginBottom: 12,
+  resizeMode: "contain",
+},
+
 });

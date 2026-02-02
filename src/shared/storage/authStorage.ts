@@ -2,6 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TOKEN_KEY = "auth_token";
 const REFRESH_KEY = "refresh_token";
+const USERNAME_KEY = "auth_username";
 
 export const saveAuthTokens = async (access: string, refresh?: string) => {
   await AsyncStorage.setItem(TOKEN_KEY, access);
@@ -10,11 +11,18 @@ export const saveAuthTokens = async (access: string, refresh?: string) => {
   }
 };
 
-// Compat: mantiene la API anterior.
+export const saveUsername = async (username: string) => {
+  await AsyncStorage.setItem(USERNAME_KEY, username);
+};
+
 export const saveToken = async (token: string) => saveAuthTokens(token);
 
 export const getToken = async () => {
   return await AsyncStorage.getItem(TOKEN_KEY);
+};
+
+export const getUsername = async () => {
+  return await AsyncStorage.getItem(USERNAME_KEY);
 };
 
 export const getRefreshToken = async () => {
@@ -22,5 +30,9 @@ export const getRefreshToken = async () => {
 };
 
 export const removeToken = async () => {
-  await AsyncStorage.multiRemove([TOKEN_KEY, REFRESH_KEY]);
+  await AsyncStorage.multiRemove([
+    TOKEN_KEY,
+    REFRESH_KEY,
+    USERNAME_KEY,
+  ]);
 };

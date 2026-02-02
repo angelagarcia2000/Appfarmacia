@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { loginService, registerService } from "../services/authService";
-import { saveAuthTokens } from "../shared/storage/authStorage";
+import {
+  saveAuthTokens,
+  saveUsername, // 👈 NUEVO
+} from "../shared/storage/authStorage";
 
 export function useAuthViewModel() {
   const [loading, setLoading] = useState(false);
@@ -42,15 +45,17 @@ export function useAuthViewModel() {
     try {
       setLoading(true);
       setError(null);
+
       const data = await loginService(username, password);
 
-      // JWT tipico en DRF (access obligatorio, refresh opcional)
+      // JWT típico en Django REST Framework
       if (data.access) {
         await saveAuthTokens(data.access, data.refresh);
+        await saveUsername(username); // 👈 GUARDAMOS EL USUARIO
         return true;
       }
 
-      setError("Respuesta invalida del servidor");
+      setError("Respuesta inválida del servidor");
       return false;
     } catch (err: any) {
       setError(String(extractError(err, "Credenciales incorrectas")));
